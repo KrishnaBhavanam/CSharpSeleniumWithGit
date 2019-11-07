@@ -22,7 +22,7 @@ namespace CSharpSeleniumWithGit
         [OneTimeSetUp]
         public void OneTimeSetup()
         {
-            driver = new ChromeDriver();
+            driver = new FirefoxDriver();
             driver.Url = "https://www.google.com/";
             //driver.Manage().Window.Maximize();
         }
