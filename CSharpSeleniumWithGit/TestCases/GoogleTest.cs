@@ -9,8 +9,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using NUnit.Framework;
 using System.Threading;
-using AventStack.ExtentReports.Reporter;
-using AventStack.ExtentReports;
+
 
 namespace CSharpSeleniumWithGit
 {
@@ -23,9 +22,9 @@ namespace CSharpSeleniumWithGit
         [OneTimeSetUp]
         public void OneTimeSetup()
         {
-            driver = new FirefoxDriver();
+            driver = new ChromeDriver();
             driver.Url = "https://www.google.com/";
-            driver.Manage().Window.Maximize();
+            //driver.Manage().Window.Maximize();
         }
 
         [Test]
@@ -42,24 +41,12 @@ namespace CSharpSeleniumWithGit
         public void GoogleSearchBoxTest()
         {
             IWebElement SearchBox = driver.FindElement(By.Name("q"));
-            var extent = new ExtentReports();
-            ExtentHtmlReporter reporter = new ExtentHtmlReporter("report.html");
             
-            extent.AttachReporter(reporter);
-            var test = extent.CreateTest("MyFirstTest", "Sample description");
-            test.Log(Status.Info, "This step shows usage of log(status, details)");
-            test.Info("This step shows usage of info(details)");
-
-            test.Fail("details",
-                MediaEntityBuilder.CreateScreenCaptureFromPath("screenshot.png").Build());
-            test.AddScreenCaptureFromPath("screenshot.png");
-         
             SearchBox.SendKeys("Selenium WebDriver");
             SearchBox.SendKeys(Keys.Enter);
 
             Thread.Sleep(1000);
-            extent.Flush();
-
+            
         }
 
 
