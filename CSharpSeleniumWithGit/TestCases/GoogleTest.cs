@@ -27,13 +27,13 @@ namespace CSharpSeleniumWithGit
             //driver.Manage().Window.Maximize();
         }
 
-        [Test]
-        public void YahooSearchBoxTest()
-        {
-            driver = new FirefoxDriver();
-            driver.Url = "https://www.yahoo.com/";
-            driver.Manage().Window.Maximize();
-        }
+        //[Test]
+        //public void YahooSearchBoxTest()
+        //{
+        //    driver = new FirefoxDriver();
+        //    driver.Url = "https://www.yahoo.com/";
+        //    driver.Manage().Window.Maximize();
+        //}
 
 
 
